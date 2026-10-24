@@ -326,9 +326,9 @@
     </div>
 
     <div class="stats reveal">
-      <div class="stat" style="--stat-c:var(--accent)"><div class="stat-num" data-count="70" data-suffix="%">0</div><div class="stat-label">dev productivity lift</div></div>
-      <div class="stat" style="--stat-c:var(--accent-2)"><div class="stat-num" data-count="95" data-suffix="%">0</div><div class="stat-label">search accuracy</div></div>
-      <div class="stat" style="--stat-c:var(--accent-3)"><div class="stat-num" data-count="1879" data-suffix="">0</div><div class="stat-label">leetcode rating (knight)</div></div>
+      <div class="stat" style="--stat-c:var(--accent)"><div class="stat-num" data-count="100" data-suffix="%">0</div><div class="stat-label">graphrag recall@10</div></div>
+      <div class="stat" style="--stat-c:var(--accent-2)"><div class="stat-num" data-count="70" data-suffix="%">0</div><div class="stat-label">fewer tokens / query</div></div>
+      <div class="stat" style="--stat-c:var(--accent-3)"><div class="stat-num" data-count="1858" data-suffix="">0</div><div class="stat-label">leetcode rating (knight)</div></div>
       <div class="stat" style="--stat-c:var(--good)"><div class="stat-num" data-count="9.67" data-suffix="">0</div><div class="stat-label">cgpa / 10</div></div>
     </div>
   </div>
@@ -336,10 +336,21 @@
 
 <section id="experience">
   <div class="wrap reveal">
-    <div class="section-head"><h2>Experience</h2><span class="eyebrow">2025 — 2026</span></div>
+    <div class="section-head"><h2>Experience</h2><span class="eyebrow">2025 — present</span></div>
     <span class="h2-line" style="--sec-c:var(--accent)"></span>
 
     <div class="log">
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-role">Associate Software Engineer</span>
+          <span class="entry-org">— Documents, ServiceNow</span>
+          <span class="entry-time">SEP 2026 → PRESENT</span>
+        </div>
+        <ul>
+          <li>Working with the <b>Documents team</b> to maintain and develop document services.</li>
+        </ul>
+      </div>
+
       <div class="entry">
         <div class="entry-head">
           <span class="entry-role">Associate Software Engineer Intern</span>
@@ -347,9 +358,9 @@
           <span class="entry-time">JAN 2026 → JUN 2026</span>
         </div>
         <ul>
-          <li>Architected an <b>Enterprise GenAI system</b> on GraphRAG, LLMs, and a Milvus vector store, wiring agentic workflows and context engineering into the platform's automation layer — lifting developer productivity by <b>70%</b>.</li>
-          <li>Built query-processing REST APIs in <b>FastAPI</b> with custom ranking for AI agents: <b>95% search accuracy</b> at <b>~4500ms</b> average inference latency, at enterprise scale.</li>
-          <li>Wrote the <b>PyTest</b> automation validating system-level behavior, working alongside architecture and test engineering to keep model orchestration stable in production.</li>
+          <li>Built a <b>GraphRAG</b> retrieval pipeline replacing vector-only RAG, achieving <b>100% recall@10</b> on a 150-query evaluation set and cutting tokens per query by <b>70%</b>.</li>
+          <li>Co-developed a <b>query decomposition pipeline</b> with <b>NVIDIA</b> engineers that splits multi-part questions into independent sub-queries, raising recall@10 from <b>70% to 90%</b> and halving token usage.</li>
+          <li>Built and deployed ingestion, indexing, and retrieval services using <b>Python</b>, <b>REST APIs</b>, and <b>async jobs</b> in an <b>IBM watsonx</b> deployment serving <b>10,000+ queries/day</b>.</li>
         </ul>
       </div>
 
@@ -360,9 +371,9 @@
           <span class="entry-time">MAY 2025 → JUL 2025</span>
         </div>
         <ul>
-          <li>Built event-driven <b>microservices in Java</b> to streamline ETL pipelines across cross-functional teams.</li>
-          <li>Designed a cloud-native POC for <b>data purge estimation</b> over <b>10B+ records</b>, tuning SQL modeling and query strategy for databases beyond <b>100TB</b>.</li>
-          <li>Set up automated test suites and <b>CI/CD</b> pipelines on Git and Kubernetes, holding the line on security and reliability standards.</li>
+          <li><b>Automated customer email routing</b> using Workflow Studio, reducing time to first response from <b>days to minutes</b> for <b>10K+ emails/week</b>.</li>
+          <li>Built a proof of concept to estimate <b>Audit Purge</b> runtime on a <b>10B+ record</b> database using sampling and extrapolation, cutting estimation time by <b>95%</b> (20 min → 1 min).</li>
+          <li>Built an Audit Purge estimates dashboard in <b>UI Builder</b> with custom components, data resources, and client scripts, letting users get purge estimates in fewer steps.</li>
         </ul>
       </div>
     </div>
@@ -398,8 +409,8 @@
           </div>
           <span class="card-time">AUG — NOV 2025</span>
         </div>
-        <span class="card-role">ML / Cloud Engineer</span>
-        <p>Replaced static autoscaling policy with a reinforcement-learning agent that makes resource-allocation decisions from live telemetry. Reward function engineered against real Grafana metrics across latency and capacity, not a synthetic proxy.</p>
+        <span class="card-role">Machine Learning Engineer</span>
+        <p>An RL-driven agent for Kubernetes auto-scaling, trained on 500GB+ of cloud logs from Google Cloud and AWS. Its multi-objective reward function, engineered from Grafana telemetry, weighs both the cost and the carbon footprint of each resource-allocation decision.</p>
         <div class="stack-row">
           <span class="stack-tag">Reinforcement Learning</span><span class="stack-tag">Kubernetes</span><span class="stack-tag">Grafana</span><span class="stack-tag">Python</span>
         </div>
@@ -420,7 +431,7 @@
           <span class="card-time">FEB — APR 2025</span>
         </div>
         <span class="card-role">Software Engineer, AI Platforms</span>
-        <p>Real-time anomalous-traffic detection pipeline built on Temporal Convolutional Networks, with a MongoDB-backed distributed store and a live dashboard for triage. Now the subject of a filed Indian patent.</p>
+        <p>Real-time anomalous-traffic detection pipeline built on Temporal Convolutional Networks, with a backend API, a live dashboard for triage, and a secure MongoDB data layer. Now the subject of a published Indian patent.</p>
         <div class="stack-row">
           <span class="stack-tag">Temporal Convolutional Networks</span><span class="stack-tag">Python</span><span class="stack-tag">MongoDB</span>
         </div>
@@ -441,38 +452,36 @@
     <span class="h2-line" style="--sec-c:var(--accent-3)"></span>
 
     <div class="skill-group" style="--gc:var(--accent-2)">
-      <h3>AI / ML &amp; LLMs</h3>
+      <h3>AI Engineering</h3>
       <div class="tags">
-        <span class="tag">Generative AI</span><span class="tag">RAG Pipelines</span><span class="tag">AI Agents</span>
-        <span class="tag">Agentic Workflows</span><span class="tag">Prompt &amp; Context Engineering</span>
-        <span class="tag">Vector DBs</span><span class="tag">Deep Learning</span><span class="tag">MLOps</span><span class="tag">Model Orchestration</span>
+        <span class="tag">Agent Orchestration</span><span class="tag">Prompt &amp; Context Engineering</span>
+        <span class="tag">RAG</span><span class="tag">GraphRAG</span>
       </div>
     </div>
     <div class="skill-group" style="--gc:var(--accent)">
       <h3>Languages</h3>
       <div class="tags">
         <span class="tag">Python</span><span class="tag">Java</span><span class="tag">C++</span><span class="tag">C</span>
-        <span class="tag">JavaScript</span><span class="tag">SQL</span><span class="tag">NoSQL</span>
+        <span class="tag">JavaScript</span>
       </div>
     </div>
     <div class="skill-group" style="--gc:var(--accent)">
-      <h3>Backend &amp; Data Engineering</h3>
+      <h3>Backend</h3>
       <div class="tags">
-        <span class="tag">REST APIs</span><span class="tag">Microservices</span><span class="tag">Distributed Systems</span>
-        <span class="tag">FastAPI</span><span class="tag">Node.js</span><span class="tag">ETL Pipelines</span><span class="tag">Data Modeling</span>
+        <span class="tag">REST APIs</span><span class="tag">Node.js</span><span class="tag">ETL Pipelines</span>
       </div>
     </div>
     <div class="skill-group" style="--gc:var(--good)">
-      <h3>Databases &amp; Cloud</h3>
+      <h3>Databases &amp; Infra</h3>
       <div class="tags">
-        <span class="tag">MySQL</span><span class="tag">PostgreSQL</span><span class="tag">MongoDB</span><span class="tag">Milvus</span>
-        <span class="tag">AWS</span><span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">Linux</span><span class="tag">CI/CD</span>
+        <span class="tag">SQL</span><span class="tag">NoSQL</span><span class="tag">Milvus</span>
+        <span class="tag">Docker</span><span class="tag">Kubernetes</span><span class="tag">AWS</span><span class="tag">Linux</span>
       </div>
     </div>
     <div class="skill-group" style="--gc:var(--accent-3)">
-      <h3>Tools &amp; Practices</h3>
+      <h3>Platforms &amp; Tools</h3>
       <div class="tags">
-        <span class="tag">PyTest</span><span class="tag">Selenium</span><span class="tag">Git</span><span class="tag">System Design</span><span class="tag">Debugging</span>
+        <span class="tag">Git</span><span class="tag">Playwright</span><span class="tag">Selenium</span><span class="tag">Jenkins</span><span class="tag">GitLab</span><span class="tag">Grafana</span>
       </div>
     </div>
     <div class="skill-group" style="--gc:var(--text-faint)">
@@ -492,19 +501,19 @@
     <div class="ach-list">
       <div class="ach" style="--ac:var(--accent-2)">
         <span class="ach-tag">DSA</span>
-        <div class="ach-body"><b>Knight, LeetCode — rating 1879</b><span>Top 5.5% globally, 700+ problems solved.</span></div>
+        <div class="ach-body"><b>Knight, LeetCode — rating 1858</b><span>Specialist (1471) on Codeforces · 4★ (1843) on CodeChef.</span></div>
       </div>
       <div class="ach" style="--ac:var(--accent-3)">
         <span class="ach-tag">Patent</span>
         <div class="ach-body"><b>Threat Prediction System Using Temporal Convolutional Networks</b><span>Indian Patent Application No. 202541083581 A — co-invented and published.</span></div>
       </div>
       <div class="ach" style="--ac:var(--accent)">
-        <span class="ach-tag">Hackathon</span>
-        <div class="ach-body"><b>Best Project Award — ₹10,000</b><span>Awarded for ThreatScan at a collegiate hackathon.</span></div>
+        <span class="ach-tag">Award</span>
+        <div class="ach-body"><b>Best Project Award — ₹10,000</b><span>Awarded for ThreatScan at college.</span></div>
       </div>
       <div class="ach" style="--ac:var(--good)">
         <span class="ach-tag">Leadership</span>
-        <div class="ach-body"><b>Technical Head, college club</b><span>Coordinated 60+ members across major technical events.</span></div>
+        <div class="ach-body"><b>Technical Head, college club</b><span>Collaborated with 15+ members to organize technical events with 200+ attendees.</span></div>
       </div>
       <div class="ach" style="--ac:var(--accent-2)">
         <span class="ach-tag">Certification</span>
