@@ -6,252 +6,327 @@
 <title>Pavan Durga Nivas</title>
 <meta name="description" content="Pavan Durga Nivas — software engineer at ServiceNow working on retrieval systems and backend services." />
 <meta name="color-scheme" content="light dark" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..800&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --bg: #ffffff;
-    --bg-alt: #f5f5f7;
-    --text: #1d1d1f;
-    --text-2: #6e6e73;
-    --hairline: #d2d2d7;
-    --link: #0066cc;
-    --nav-bg: rgba(255,255,255,0.72);
-    --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --bg: #f7f8fb;
+    --text: #15171c;
+    --text-2: #5d6270;
+    --hairline: rgba(21,23,28,0.10);
+    --accent: #2f5bea;
+    --wash-1: rgba(47,91,234,0.16);
+    --wash-2: rgba(22,163,154,0.13);
+    --wash-3: rgba(255,170,120,0.10);
+
+    /* liquid glass */
+    --glass: rgba(255,255,255,0.52);
+    --glass-strong: rgba(255,255,255,0.72);
+    --glass-edge: rgba(255,255,255,0.85);
+    --glass-rim: rgba(255,255,255,0.45);
+    --glass-shade: rgba(21,30,60,0.16);
+    --sheen: rgba(255,255,255,0.55);
+
+    --font: "Geist", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   }
   @media (prefers-color-scheme: dark){
     :root{
-      --bg: #000000;
-      --bg-alt: #161617;
-      --text: #f5f5f7;
-      --text-2: #86868b;
-      --hairline: #424245;
-      --link: #2997ff;
-      --nav-bg: rgba(22,22,23,0.72);
+      --bg: #0a0b0f;
+      --text: #f1f2f5;
+      --text-2: #959baa;
+      --hairline: rgba(241,242,245,0.10);
+      --accent: #7d9cff;
+      --wash-1: rgba(84,120,255,0.22);
+      --wash-2: rgba(22,163,154,0.15);
+      --wash-3: rgba(255,140,90,0.07);
+
+      --glass: rgba(28,30,38,0.48);
+      --glass-strong: rgba(28,30,38,0.70);
+      --glass-edge: rgba(255,255,255,0.22);
+      --glass-rim: rgba(255,255,255,0.08);
+      --glass-shade: rgba(0,0,0,0.45);
+      --sheen: rgba(255,255,255,0.12);
     }
-  }
-  @media (prefers-reduced-transparency: reduce){
-    :root{ --nav-bg: var(--bg); }
   }
 
   *{box-sizing:border-box;}
-  html{scroll-behavior:smooth; scroll-padding-top:56px;}
+  html{scroll-behavior:smooth; scroll-padding-top:90px;}
   @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
 
   body{
-    margin:0; background:var(--bg); color:var(--text);
-    font-family:var(--font); font-size:17px; line-height:1.47; letter-spacing:-0.022em;
+    margin:0; color:var(--text); font-family:var(--font);
+    font-size:17px; line-height:1.55; letter-spacing:-0.011em;
     -webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(900px 600px at 12% -5%, var(--wash-1), transparent 70%),
+      radial-gradient(800px 600px at 95% 18%, var(--wash-2), transparent 70%),
+      radial-gradient(700px 500px at 40% 70%, var(--wash-3), transparent 70%),
+      radial-gradient(900px 700px at 85% 95%, var(--wash-1), transparent 70%),
+      var(--bg);
+    background-attachment:fixed;
   }
-  a{color:var(--link); text-decoration:none;}
-  a:hover{text-decoration:underline;}
-  a:focus-visible{outline:2px solid var(--link); outline-offset:3px; border-radius:4px;}
+  a{color:var(--accent); text-decoration:none;}
+  a:hover{text-decoration:underline; text-underline-offset:3px;}
+  a:focus-visible{outline:2px solid var(--accent); outline-offset:3px; border-radius:6px;}
+  b{font-weight:600; color:var(--text);}
 
-  .wrap{max-width:980px; margin:0 auto; padding:0 22px;}
+  .wrap{max-width:1040px; margin:0 auto; padding:0 24px;}
+  @media (max-width:600px){ .wrap{padding:0 16px;} }
 
-  /* nav: translucent material, hairline only once content scrolls under it */
-  nav{
-    position:sticky; top:0; z-index:10; height:48px;
-    background:var(--nav-bg);
-    -webkit-backdrop-filter:saturate(180%) blur(20px); backdrop-filter:saturate(180%) blur(20px);
-    box-shadow:0 1px 0 transparent; transition:box-shadow .2s ease;
+  /* ---------- liquid glass material ---------- */
+  .glass{
+    position:relative; isolation:isolate;
+    background:var(--glass);
+    -webkit-backdrop-filter:blur(22px) saturate(185%); backdrop-filter:blur(22px) saturate(185%);
+    border-radius:26px;
+    box-shadow:
+      inset 0 1px 0 var(--glass-edge),        /* light catching the top edge */
+      inset 0 -1px 0 var(--glass-rim),
+      inset 0 0 0 1px var(--glass-rim),
+      0 1px 2px var(--glass-shade),
+      0 18px 40px -22px var(--glass-shade);
   }
-  nav.scrolled{box-shadow:0 1px 0 var(--hairline);}
-  nav .wrap{display:flex; align-items:center; justify-content:space-between; height:100%;}
-  .nav-name{font-size:19px; font-weight:600; letter-spacing:-0.02em; color:var(--text);}
-  .nav-name:hover{text-decoration:none;}
-  .nav-links{display:flex; gap:28px; font-size:12px; letter-spacing:-0.01em;}
-  .nav-links a{color:var(--text); opacity:0.8;}
-  .nav-links a:hover{opacity:1; text-decoration:none;}
-  @media (max-width:640px){ .nav-links{gap:16px;} .nav-links a.hide-sm{display:none;} }
+  /* specular sheen that follows the pointer */
+  .glass::after{
+    content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none; z-index:-1;
+    background:radial-gradient(320px circle at var(--mx,50%) var(--my,-20%), var(--sheen), transparent 65%);
+    opacity:0; transition:opacity .35s ease;
+  }
+  .glass:hover::after{opacity:1;}
+  @media (prefers-reduced-transparency: reduce){
+    .glass{background:var(--bg); -webkit-backdrop-filter:none; backdrop-filter:none; box-shadow:inset 0 0 0 1px var(--hairline);}
+  }
+  @media (prefers-contrast: more){
+    .glass{background:var(--bg); box-shadow:inset 0 0 0 1.5px var(--text);}
+  }
 
-  /* hero */
-  .hero{padding:120px 0 96px; text-align:center;}
+  /* ---------- floating nav ---------- */
+  .nav{
+    position:fixed; top:16px; left:50%; transform:translateX(-50%); z-index:20;
+    display:flex; align-items:center; gap:6px; padding:6px; border-radius:999px;
+    max-width:calc(100% - 24px);
+  }
+  .nav .me{font-weight:600; color:var(--text); padding:8px 14px 8px 12px; letter-spacing:-0.02em; white-space:nowrap;}
+  .nav .me:hover{text-decoration:none;}
+  .nav-links{position:relative; display:flex;}
+  .nav-links a{
+    position:relative; z-index:1; color:var(--text); font-size:14px; font-weight:500;
+    padding:8px 14px; border-radius:999px; opacity:.75; transition:opacity .2s; white-space:nowrap;
+  }
+  .nav-links a:hover, .nav-links a.on{opacity:1; text-decoration:none;}
+  /* the lens: a glass droplet that glides to the active section */
+  .lens{
+    position:absolute; top:0; height:100%; left:0; width:0; border-radius:999px; z-index:0;
+    background:var(--glass-strong);
+    box-shadow:inset 0 1px 0 var(--glass-edge), inset 0 0 0 1px var(--glass-rim), 0 4px 14px -6px var(--glass-shade);
+    opacity:0; transition:transform .5s cubic-bezier(.2,.8,.2,1), width .5s cubic-bezier(.2,.8,.2,1), opacity .3s;
+  }
+  @media (max-width:640px){ .nav .me{display:none;} .nav-links a{padding:8px 11px; font-size:13.5px;} .nav-links a.hide-sm{display:none;} }
+
+  /* ---------- hero ---------- */
+  .hero{padding:168px 0 72px; text-align:center;}
   h1{
-    font-size:clamp(44px, 8vw, 80px); line-height:1.05; letter-spacing:-0.035em;
-    font-weight:700; margin:0 0 20px;
+    font-size:clamp(46px, 8.4vw, 92px); line-height:1.02; letter-spacing:-0.045em;
+    font-weight:700; margin:0 0 22px;
   }
   .lede{
-    font-size:clamp(21px, 2.6vw, 28px); line-height:1.25; letter-spacing:-0.02em;
-    color:var(--text-2); font-weight:400; max-width:720px; margin:0 auto 32px; text-wrap:balance;
+    font-size:clamp(18px, 2vw, 22px); line-height:1.45; letter-spacing:-0.015em; font-weight:400;
+    color:var(--text-2); max-width:760px; margin:0 auto 34px; text-wrap:balance;
   }
-  .lede b{color:var(--text); font-weight:600;}
-  .cta{display:flex; flex-wrap:wrap; justify-content:center; gap:12px 32px; font-size:19px;}
-  .cta a::after{content:" ›";}
-
-  /* figures */
-  .figures{
-    display:grid; grid-template-columns:repeat(4,1fr); gap:32px;
-    max-width:880px; margin:96px auto 0; text-align:center;
+  .lede b{font-weight:600;}
+  .cta{display:flex; flex-wrap:wrap; justify-content:center; gap:10px;}
+  .pill{
+    display:inline-flex; align-items:center; gap:6px; padding:12px 20px; border-radius:999px;
+    font-weight:550; font-size:15.5px; color:var(--text);
+    transition:transform .12s ease;
   }
-  .fig b{display:block; font-size:clamp(36px,4.6vw,48px); font-weight:600; letter-spacing:-0.03em; line-height:1.1; font-variant-numeric:tabular-nums;}
-  .fig span{display:block; font-size:14px; color:var(--text-2); margin-top:6px; letter-spacing:-0.01em;}
-  @media (max-width:700px){ .figures{grid-template-columns:repeat(2,1fr); gap:40px 16px;} }
+  .pill:hover{text-decoration:none;}
+  .pill:active{transform:scale(0.96);}
+  .pill.primary{background:var(--accent); color:#fff; box-shadow:inset 0 1px 0 rgba(255,255,255,.35), 0 10px 24px -12px var(--accent);}
+  @media (prefers-color-scheme: dark){ .pill.primary{color:#0a0b0f;} }
 
-  /* sections */
-  section{padding:96px 0;}
-  section.alt{background:var(--bg-alt);}
-  h2{font-size:clamp(32px,4.4vw,48px); line-height:1.08; letter-spacing:-0.03em; font-weight:700; margin:0 0 48px;}
+  /* ---------- sections ---------- */
+  section{padding:88px 0;}
+  .head{display:flex; align-items:baseline; justify-content:space-between; gap:16px; margin-bottom:36px;}
+  h2{font-size:clamp(32px,4.6vw,50px); line-height:1.05; letter-spacing:-0.04em; font-weight:700; margin:0;}
+  .head p{margin:0; color:var(--text-2); font-size:15px;}
+  @media (max-width:640px){ .head{flex-direction:column; gap:6px;} }
 
   /* experience */
-  .job{display:grid; grid-template-columns:220px 1fr; gap:24px; padding:32px 0; border-top:1px solid var(--hairline);}
-  .job:last-child{border-bottom:1px solid var(--hairline);}
-  .job-when{font-size:14px; color:var(--text-2); padding-top:4px;}
-  .job h3{font-size:24px; line-height:1.17; letter-spacing:-0.025em; font-weight:600; margin:0 0 2px;}
-  .job-org{color:var(--text-2); margin:0 0 14px;}
-  .job ul{margin:0; padding-left:18px;}
-  .job li{margin-bottom:10px;}
+  .jobs{display:grid; gap:16px;}
+  .job{display:grid; grid-template-columns:200px minmax(0,1fr); gap:24px; padding:30px 32px;}
+  .job-when{font-size:14px; color:var(--text-2); padding-top:5px;}
+  .now{display:inline-flex; align-items:center; gap:6px; margin-top:10px; font-size:12.5px; font-weight:600; color:var(--accent);}
+  .now i{width:7px; height:7px; border-radius:50%; background:currentColor; box-shadow:0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent);}
+  .job h3{font-size:22px; line-height:1.2; letter-spacing:-0.03em; font-weight:650; margin:0 0 2px;}
+  .job-org{color:var(--text-2); margin:0 0 14px; font-size:15.5px;}
+  .job ul{margin:0; padding-left:18px; color:var(--text-2);}
+  .job li{margin-bottom:9px;}
   .job li:last-child{margin-bottom:0;}
-  @media (max-width:700px){ .job{grid-template-columns:1fr; gap:6px;} }
+  .job li::marker{color:var(--accent);}
+  @media (max-width:720px){ .job{grid-template-columns:1fr; gap:4px; padding:24px 22px;} }
 
   /* projects */
-  .tiles{display:grid; gap:20px;}
-  .tile{background:var(--bg); border-radius:18px; padding:40px 44px;}
-  .tile-meta{font-size:14px; color:var(--text-2); margin:0 0 6px;}
-  .tile h3{font-size:clamp(26px,3.2vw,32px); line-height:1.12; letter-spacing:-0.028em; font-weight:700; margin:0 0 14px;}
-  .tile p{margin:0 0 20px; max-width:680px;}
-  .tile-stack{font-size:14px; color:var(--text-2);}
-  .tile-figs{display:flex; flex-wrap:wrap; gap:16px 48px; margin:28px 0 24px;}
-  .tile-figs b{display:block; font-size:32px; font-weight:600; letter-spacing:-0.03em; line-height:1.1; font-variant-numeric:tabular-nums;}
-  .tile-figs span{font-size:14px; color:var(--text-2);}
-  .tile a::after{content:" ›";}
-  @media (max-width:700px){ .tile{padding:32px 24px;} }
+  .tiles{display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px;}
+  .tile{padding:34px 34px 30px; display:flex; flex-direction:column;}
+  .tile.wide{grid-column:1/-1;}
+  .tile-meta{font-size:13.5px; color:var(--text-2); margin:0 0 8px;}
+  .tile h3{font-size:clamp(24px,2.8vw,30px); line-height:1.12; letter-spacing:-0.035em; font-weight:700; margin:0 0 12px;}
+  .tile p{margin:0 0 18px; color:var(--text-2);}
+  .tile-figs{display:flex; flex-wrap:wrap; gap:14px 36px; margin:4px 0 20px;}
+  .tile-figs b{display:block; font-size:30px; font-weight:650; letter-spacing:-0.04em; line-height:1.1; font-variant-numeric:tabular-nums;}
+  .tile-figs span{font-size:13.5px; color:var(--text-2);}
+  .chips{display:flex; flex-wrap:wrap; gap:6px; margin:auto 0 18px;}
+  .chips span{font-size:12.5px; font-weight:500; padding:4px 10px; border-radius:999px; color:var(--text-2); box-shadow:inset 0 0 0 1px var(--hairline);}
+  .tile .go{font-weight:550; font-size:15px;}
+  .tile .go::after{content:" ›";}
+  @media (max-width:760px){ .tiles{grid-template-columns:1fr;} .tile{padding:26px 22px;} }
 
-  /* spec tables (skills, recognition) */
-  .spec{border-top:1px solid var(--hairline); margin:0;}
-  .spec-row{display:grid; grid-template-columns:220px 1fr; gap:24px; padding:22px 0; border-bottom:1px solid var(--hairline);}
-  .spec-row dt{font-weight:600;}
-  .spec-row dd{margin:0; color:var(--text-2);}
-  .spec-row dd b{color:var(--text); font-weight:600;}
-  @media (max-width:700px){ .spec-row{grid-template-columns:1fr; gap:4px;} }
+  /* skills + recognition */
+  .two{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:16px;}
+  @media (max-width:860px){ .two{grid-template-columns:1fr;} }
+  .panel{padding:30px 32px;}
+  .panel h2{font-size:clamp(26px,3vw,32px); margin-bottom:18px;}
+  .spec{margin:0;}
+  .spec-row{display:grid; grid-template-columns:150px minmax(0,1fr); gap:16px; padding:14px 0; box-shadow:0 -1px 0 var(--hairline);}
+  .spec-row dt{font-weight:600; font-size:15px;}
+  .spec-row dd{margin:0; color:var(--text-2); font-size:15.5px;}
+  @media (max-width:480px){ .spec-row{grid-template-columns:1fr; gap:2px;} .panel{padding:24px 22px;} }
+
+  .scores{display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:10px;}
+  .score{padding:14px 12px; border-radius:16px; box-shadow:inset 0 0 0 1px var(--hairline);}
+  .score b{display:block; font-size:28px; font-weight:650; letter-spacing:-0.04em; line-height:1.1; font-variant-numeric:tabular-nums;}
+  .score span{display:block; font-size:13px; color:var(--text-2); margin-top:2px;}
 
   /* education */
-  .edu{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:16px;}
-  .edu h3{font-size:24px; letter-spacing:-0.025em; font-weight:600; margin:0 0 4px;}
+  .edu{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:16px; padding:28px 32px;}
+  .edu h3{font-size:22px; letter-spacing:-0.03em; font-weight:650; margin:0 0 2px;}
   .edu p{margin:0; color:var(--text-2);}
-  .edu-gpa b{font-size:48px; font-weight:600; letter-spacing:-0.03em; font-variant-numeric:tabular-nums;}
+  .edu-gpa b{font-size:44px; font-weight:650; letter-spacing:-0.045em; font-variant-numeric:tabular-nums;}
   .edu-gpa span{color:var(--text-2); font-size:14px; margin-left:6px;}
 
-  footer{background:var(--bg-alt); padding:28px 0 40px; font-size:12px; color:var(--text-2); letter-spacing:-0.01em;}
-  footer .wrap{display:flex; flex-wrap:wrap; justify-content:space-between; gap:12px; border-top:1px solid var(--hairline); padding-top:20px;}
+  /* contact */
+  .contact{text-align:center; padding:56px 24px;}
+  .contact h2{margin-bottom:12px;}
+  .contact p{color:var(--text-2); margin:0 auto 26px; max-width:520px;}
 
-  /* quiet entrance, opacity + short rise only */
-  .reveal{opacity:0; transform:translateY(16px); transition:opacity .7s cubic-bezier(.25,.1,.25,1), transform .7s cubic-bezier(.25,.1,.25,1);}
+  footer{padding:24px 0 48px; font-size:13px; color:var(--text-2);}
+  footer .wrap{display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px;}
+
+  /* quiet entrance */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .8s cubic-bezier(.2,.8,.2,1), transform .8s cubic-bezier(.2,.8,.2,1);}
   .reveal.in{opacity:1; transform:none;}
   @media (prefers-reduced-motion: reduce){ .reveal{opacity:1; transform:none; transition:none;} }
 </style>
 </head>
 <body>
 
-<nav id="nav">
-  <div class="wrap">
-    <a class="nav-name" href="#top">Pavan</a>
-    <div class="nav-links">
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a class="hide-sm" href="#skills">Skills</a>
-      <a class="hide-sm" href="#recognition">Recognition</a>
-      <a href="mailto:pavanmaddarapu@gmail.com">Contact</a>
-    </div>
+<nav class="nav glass" aria-label="Sections">
+  <a class="me" href="#top">Pavan</a>
+  <div class="nav-links" id="navLinks">
+    <span class="lens" id="lens" aria-hidden="true"></span>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a class="hide-sm" href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <header class="hero" id="top">
   <div class="wrap">
     <h1>Pavan Durga Nivas</h1>
-    <p class="lede">Software engineer at <b>ServiceNow</b>, working on document services. Before that, I built GraphRAG retrieval pipelines alongside engineers from NVIDIA.</p>
+    <p class="lede">Software engineer at <b>ServiceNow</b>. Building AI-powered software from first principles, working hands-on with the latest AI stack and methods to serve real customers.</p>
     <div class="cta">
-      <a href="mailto:pavanmaddarapu@gmail.com">Email</a>
-      <a href="https://github.com/pavan-durga-nivas" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/pavan-durga-nivas/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://leetcode.com/u/pavan_durga_nivas/" target="_blank" rel="noopener">LeetCode</a>
-    </div>
-
-    <div class="figures reveal">
-      <div class="fig"><b>100%</b><span>recall@10 with GraphRAG</span></div>
-      <div class="fig"><b>70%</b><span>fewer tokens per query</span></div>
-      <div class="fig"><b>10K+</b><span>queries served a day</span></div>
-      <div class="fig"><b>1858</b><span>LeetCode rating, Knight</span></div>
+      <a class="pill primary" href="mailto:pavanmaddarapu@gmail.com">Get in touch</a>
+      <a class="pill glass" href="https://github.com/pavan-durga-nivas" target="_blank" rel="noopener">GitHub</a>
+      <a class="pill glass" href="https://www.linkedin.com/in/pavan-durga-nivas/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="pill glass" href="https://leetcode.com/u/pavan_durga_nivas/" target="_blank" rel="noopener">LeetCode</a>
     </div>
   </div>
 </header>
 
 <section id="experience">
   <div class="wrap reveal">
-    <h2>Experience.</h2>
+    <div class="head"><h2>Experience</h2><p>ServiceNow · Hyderabad</p></div>
 
-    <div class="job">
-      <div class="job-when">Sep 2026 – Present</div>
-      <div>
-        <h3>Associate Software Engineer</h3>
-        <p class="job-org">ServiceNow · Documents team · Hyderabad</p>
-        <ul>
-          <li>Maintaining and developing document services.</li>
-        </ul>
+    <div class="jobs">
+      <div class="job glass">
+        <div class="job-when">Sep 2026 – Present<br><span class="now"><i></i>Current role</span></div>
+        <div>
+          <h3>Associate Software Engineer</h3>
+          <p class="job-org">ServiceNow · Documents team</p>
+          <ul>
+            <li>Maintaining and developing <b>document services</b>.</li>
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <div class="job">
-      <div class="job-when">Jan 2026 – Jun 2026</div>
-      <div>
-        <h3>Associate Software Engineer Intern</h3>
-        <p class="job-org">ServiceNow · Enterprise AI</p>
-        <ul>
-          <li>Built a GraphRAG retrieval pipeline to replace vector-only RAG, reaching 100% recall@10 on a 150-query evaluation set and cutting tokens per query by 70%.</li>
-          <li>Co-developed a query decomposition pipeline with NVIDIA engineers that splits multi-part questions into independent sub-queries, raising recall@10 from 70% to 90% and halving token usage.</li>
-          <li>Built and deployed ingestion, indexing, and retrieval services in Python — REST APIs and async jobs — on IBM watsonx, serving 10,000+ queries a day.</li>
-        </ul>
+      <div class="job glass">
+        <div class="job-when">Jan 2026 – Jun 2026</div>
+        <div>
+          <h3>Associate Software Engineer Intern</h3>
+          <p class="job-org">ServiceNow · Enterprise AI</p>
+          <ul>
+            <li>Built a <b>GraphRAG</b> retrieval pipeline to replace vector-only RAG, reaching <b>100% recall@10</b> on a <b>150-query</b> evaluation set and cutting tokens per query by <b>70%</b>.</li>
+            <li>Co-developed a <b>query decomposition</b> pipeline with <b>NVIDIA</b> engineers that splits multi-part questions into independent sub-queries, raising recall@10 from <b>70% to 90%</b> and <b>halving token usage</b>.</li>
+            <li>Built and deployed ingestion, indexing, and retrieval services in <b>Python</b> — <b>REST APIs</b> and <b>async jobs</b> — on <b>IBM watsonx</b>, serving <b>10,000+ queries a day</b>.</li>
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <div class="job">
-      <div class="job-when">May 2025 – Jul 2025</div>
-      <div>
-        <h3>Associate Software Engineer Intern</h3>
-        <p class="job-org">ServiceNow</p>
-        <ul>
-          <li>Automated customer email routing with Workflow Studio, taking time to first response from days to minutes across 10K+ emails a week.</li>
-          <li>Built a proof of concept that estimates Audit Purge runtime on a 10B+ record database through sampling and extrapolation — estimates now take 1 minute instead of 20.</li>
-          <li>Built an Audit Purge estimates dashboard in UI Builder with custom components, data resources, and client scripts, so users reach an estimate in fewer steps.</li>
-        </ul>
+      <div class="job glass">
+        <div class="job-when">May 2025 – Jul 2025</div>
+        <div>
+          <h3>Associate Software Engineer Intern</h3>
+          <p class="job-org">ServiceNow</p>
+          <ul>
+            <li>Automated <b>customer email routing</b> with <b>Workflow Studio</b>, taking time to first response from <b>days to minutes</b> across <b>10K+ emails a week</b>.</li>
+            <li>Built a proof of concept that estimates <b>Audit Purge</b> runtime on a <b>10B+ record</b> database through <b>sampling and extrapolation</b> — estimates now take <b>1 minute instead of 20</b>.</li>
+            <li>Built an Audit Purge estimates <b>dashboard</b> in <b>UI Builder</b> with custom components, data resources, and client scripts, so users reach an estimate in fewer steps.</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="projects" class="alt">
+<section id="projects">
   <div class="wrap reveal">
-    <h2>Projects.</h2>
+    <div class="head"><h2>Projects</h2><p>Selected work</p></div>
 
     <div class="tiles">
-      <article class="tile">
+      <article class="tile glass wide">
         <p class="tile-meta">Founder · Jul 2026 – In progress</p>
         <h3>Research-Sphere</h3>
-        <p>A research workspace in one app: a Word-like collaborative editor, a Gemini-powered writing assistant, originality and AI-probability checks, paper discovery, and a personal reference library.</p>
-        <p class="tile-stack">Next.js 16 · React 19 · TipTap / ProseMirror · Gemini API · MongoDB · TypeScript</p>
-        <a href="https://github.com/pavan-durga-nivas/Research-Sphere" target="_blank" rel="noopener">View source</a>
+        <p>A research workspace in one app: a Word-like <b>collaborative editor</b>, a <b>Gemini-powered</b> writing assistant, <b>originality and AI-probability checks</b>, <b>paper discovery</b>, and a personal <b>reference library</b>.</p>
+        <div class="chips"><span>Next.js 16</span><span>React 19</span><span>TipTap / ProseMirror</span><span>Gemini API</span><span>MongoDB</span><span>TypeScript</span></div>
+        <a class="go" href="https://github.com/pavan-durga-nivas/Research-Sphere" target="_blank" rel="noopener">View source</a>
       </article>
 
-      <article class="tile">
+      <article class="tile glass">
         <p class="tile-meta">Machine Learning Engineer · Aug – Nov 2025</p>
         <h3>RL-based Kubernetes autoscaler</h3>
-        <p>A reinforcement-learning agent for Kubernetes auto-scaling, trained on 500GB+ of cloud logs from Google Cloud and AWS. The reward function, built from Grafana telemetry, weighs both the cost and the carbon footprint of every allocation.</p>
+        <p>A <b>reinforcement-learning</b> agent for <b>Kubernetes</b> auto-scaling, trained on <b>500GB+</b> of cloud logs from <b>Google Cloud</b> and <b>AWS</b>. Its reward function, built from <b>Grafana</b> telemetry, weighs both <b>cost</b> and <b>carbon footprint</b>.</p>
         <div class="tile-figs">
           <div><b>99.99%</b><span>SLA adherence</span></div>
-          <div><b>30%</b><span>more reliable</span></div>
           <div><b>25%</b><span>lower cloud cost</span></div>
+          <div><b>30%</b><span>more reliable</span></div>
         </div>
-        <p class="tile-stack">Reinforcement Learning · Kubernetes · Grafana · Python</p>
-        <a href="https://github.com/pavan-durga-nivas/rl-agent" target="_blank" rel="noopener">View source</a>
+        <div class="chips"><span>Reinforcement Learning</span><span>Kubernetes</span><span>Grafana</span><span>Python</span></div>
+        <a class="go" href="https://github.com/pavan-durga-nivas/rl-agent" target="_blank" rel="noopener">View source</a>
       </article>
 
-      <article class="tile">
+      <article class="tile glass">
         <p class="tile-meta">Software Engineer · Feb – Apr 2025</p>
         <h3>ThreatScan</h3>
-        <p>Real-time detection of anomalous network traffic using Temporal Convolutional Networks, with a backend API, a live triage dashboard, and a secure MongoDB data layer. Won Best Project and became a published Indian patent.</p>
+        <p><b>Real-time</b> detection of anomalous network traffic using <b>Temporal Convolutional Networks</b>, with a backend API, a live triage dashboard, and a secure <b>MongoDB</b> data layer. Won <b>Best Project</b> and became a <b>published Indian patent</b>.</p>
         <div class="tile-figs">
           <div><b>89%</b><span>detection accuracy</span></div>
+          <div><b>1</b><span>patent published</span></div>
         </div>
-        <p class="tile-stack">Temporal Convolutional Networks · Python · MongoDB</p>
-        <a href="https://github.com/pavan-durga-nivas/threatscan" target="_blank" rel="noopener">View source</a>
+        <div class="chips"><span>Temporal Convolutional Networks</span><span>Python</span><span>MongoDB</span></div>
+        <a class="go" href="https://github.com/pavan-durga-nivas/threatscan" target="_blank" rel="noopener">View source</a>
       </article>
     </div>
   </div>
@@ -259,35 +334,36 @@
 
 <section id="skills">
   <div class="wrap reveal">
-    <h2>Skills.</h2>
-    <dl class="spec">
-      <div class="spec-row"><dt>Languages</dt><dd>Python, Java, C++, C, JavaScript</dd></div>
-      <div class="spec-row"><dt>AI engineering</dt><dd>Agent orchestration, prompt and context engineering, RAG, GraphRAG</dd></div>
-      <div class="spec-row"><dt>Backend</dt><dd>REST APIs, Node.js, ETL pipelines</dd></div>
-      <div class="spec-row"><dt>Databases and infra</dt><dd>SQL, NoSQL, Milvus, Docker, Kubernetes, AWS, Linux</dd></div>
-      <div class="spec-row"><dt>Platforms and tools</dt><dd>Git, Playwright, Selenium, Jenkins, GitLab, Grafana</dd></div>
-      <div class="spec-row"><dt>Core CS</dt><dd>Data structures and algorithms, OOP, operating systems, DBMS, computer networks</dd></div>
-    </dl>
-  </div>
-</section>
+    <div class="two">
+      <div class="panel glass">
+        <h2>Skills</h2>
+        <dl class="spec">
+          <div class="spec-row"><dt>Languages</dt><dd>Python, Java, C++, C, JavaScript</dd></div>
+          <div class="spec-row"><dt>AI engineering</dt><dd>Agent orchestration, prompt and context engineering, RAG, GraphRAG</dd></div>
+          <div class="spec-row"><dt>Backend</dt><dd>REST APIs, Node.js, ETL pipelines</dd></div>
+          <div class="spec-row"><dt>Data and infra</dt><dd>SQL, NoSQL, Milvus, Docker, Kubernetes, AWS, Linux</dd></div>
+          <div class="spec-row"><dt>Tools</dt><dd>Git, Playwright, Selenium, Jenkins, GitLab, Grafana</dd></div>
+          <div class="spec-row"><dt>Core CS</dt><dd>Data structures and algorithms, OOP, operating systems, DBMS, computer networks</dd></div>
+        </dl>
+      </div>
 
-<section id="recognition" class="alt">
-  <div class="wrap reveal">
-    <h2>Recognition.</h2>
-    <dl class="spec">
-      <div class="spec-row"><dt>Competitive programming</dt><dd><b>Knight (1858)</b> on LeetCode, <b>Specialist (1471)</b> on Codeforces, <b>4★ (1843)</b> on CodeChef</dd></div>
-      <div class="spec-row"><dt>Patent</dt><dd>Co-inventor, <b>“Threat Prediction System Using Temporal Convolutional Networks”</b> — Indian Patent No. 202541083581 A</dd></div>
-      <div class="spec-row"><dt>Award</dt><dd><b>Best Project Award</b> (₹10,000) for ThreatScan</dd></div>
-      <div class="spec-row"><dt>Leadership</dt><dd><b>Technical Head</b> of a college club — organized technical events with 15+ members for 200+ attendees</dd></div>
-      <div class="spec-row"><dt>Certification</dt><dd><b>Top 1% nationally</b> in C, C++, and Python through NPTEL</dd></div>
-    </dl>
-  </div>
-</section>
+      <div class="panel glass">
+        <h2>Recognition</h2>
+        <div class="scores">
+          <div class="score"><b>1858</b><span>LeetCode · Knight</span></div>
+          <div class="score"><b>1843</b><span>CodeChef · 4★</span></div>
+          <div class="score"><b>1471</b><span>Codeforces · Specialist</span></div>
+        </div>
+        <dl class="spec">
+          <div class="spec-row"><dt>Patent</dt><dd>Co-inventor, “Threat Prediction System Using Temporal Convolutional Networks” — Indian Patent No. 202541083581 A</dd></div>
+          <div class="spec-row"><dt>Award</dt><dd>Best Project Award (₹10,000) for ThreatScan</dd></div>
+          <div class="spec-row"><dt>Leadership</dt><dd>Technical Head of a college club — organized events with 15+ members for 200+ attendees</dd></div>
+          <div class="spec-row"><dt>Certification</dt><dd>Top 1% nationally in C, C++, and Python through NPTEL</dd></div>
+        </dl>
+      </div>
+    </div>
 
-<section id="education">
-  <div class="wrap reveal">
-    <h2>Education.</h2>
-    <div class="edu">
+    <div class="edu glass" style="margin-top:16px">
       <div>
         <h3>Vasavi College of Engineering</h3>
         <p>B.E. Computer Science · Hyderabad · 2022 – 2026</p>
@@ -297,26 +373,67 @@
   </div>
 </section>
 
+<section id="contact" style="padding-top:24px">
+  <div class="wrap reveal">
+    <div class="contact glass">
+      <h2>Let's talk.</h2>
+      <p>Open to conversations about retrieval systems, backend engineering, and interesting problems.</p>
+      <div class="cta">
+        <a class="pill primary" href="mailto:pavanmaddarapu@gmail.com">pavanmaddarapu@gmail.com</a>
+        <a class="pill glass" href="https://www.linkedin.com/in/pavan-durga-nivas/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
-    <span>Pavan Durga Nivas · <a href="mailto:pavanmaddarapu@gmail.com">pavanmaddarapu@gmail.com</a></span>
+    <span>© 2026 Pavan Durga Nivas Maddarapu</span>
     <span>Hyderabad, India</span>
   </div>
 </footer>
 
 <script>
 (function(){
-  var nav = document.getElementById('nav');
-  function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 4); }
-  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  var reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // specular sheen: light follows the pointer across any glass surface
+  document.addEventListener('pointermove', function(e){
+    var g = e.target.closest && e.target.closest('.glass');
+    if(!g) return;
+    var r = g.getBoundingClientRect();
+    g.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+    g.style.setProperty('--my', (e.clientY - r.top) + 'px');
+  }, {passive:true});
+
+  // nav lens glides to the section in view
+  var lens = document.getElementById('lens');
+  var links = Array.prototype.slice.call(document.querySelectorAll('#navLinks a'));
+  function moveLens(a){
+    links.forEach(function(l){ l.classList.toggle('on', l === a); });
+    if(!a || a.offsetParent === null){ lens.style.opacity = 0; return; }
+    lens.style.opacity = 1;
+    lens.style.width = a.offsetWidth + 'px';
+    lens.style.transform = 'translateX(' + a.offsetLeft + 'px)';
+  }
+  if('IntersectionObserver' in window){
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(!e.isIntersecting) return;
+        moveLens(links.filter(function(l){ return l.getAttribute('href') === '#' + e.target.id; })[0] || null);
+      });
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    document.querySelectorAll('section[id], header[id]').forEach(function(s){ spy.observe(s); });
+  }
+
+  // quiet entrance
   var els = document.querySelectorAll('.reveal');
-  if(!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches){
+  if(!('IntersectionObserver' in window) || reduced){
     els.forEach(function(el){ el.classList.add('in'); }); return;
   }
   var io = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, {threshold:0.1});
+  }, {threshold:0.08});
   els.forEach(function(el){ io.observe(el); });
 })();
 </script>
